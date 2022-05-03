@@ -3,4 +3,7 @@
     <string name="etName">Nombre</string>
     <string name="etLastName">Apellido</string>
     <string name="etPassWord">Contraseña</string>
+    <string name="etPhone">Teléfono</string>
+    <string name="etMail">Mail</string>
+    <string name="etCode">Codigo</string>
 </resources>
