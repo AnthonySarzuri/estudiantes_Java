@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
                 //Procedimiento
                 break;
         }
+
     }
 
     private void popularSpinner(){

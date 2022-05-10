@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         intencion.putExtra("esEstudiante_persona",esEstudiante);*/
         //Paso alternativo: pasar datos por objeto serializado
         //Objeto Bundle entiendace como si fuera un archivo temporal
+
         Bundle archivoTemporal = new Bundle();
         archivoTemporal.putSerializable("objeto_estudiante",student);
         intencion.putExtras(archivoTemporal);

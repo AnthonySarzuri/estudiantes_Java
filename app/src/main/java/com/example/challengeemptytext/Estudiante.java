@@ -30,6 +30,7 @@ public class Estudiante implements Serializable/*Interfaces marcador -> no hay q
 
     //Getters
 
+
     public String getNombre() {
         return nombre;
     }
