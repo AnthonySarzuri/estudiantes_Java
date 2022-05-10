@@ -16,7 +16,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/txtData" />
 
@@ -133,9 +133,12 @@
         android:id="@+id/swStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginBottom="16dp"
         android:text="Switch"
-        app:layout_constraintEnd_toEndOf="@+id/etCode"
-        tools:layout_editor_absoluteY="610dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnVerifyData"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/etCode" />
 
     <EditText
         android:id="@+id/etMail"
@@ -155,22 +158,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/etPhone"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnVerifyData"
-        app:layout_constraintTop_toBottomOf="@+id/etMail"
-        app:layout_constraintVertical_bias="0.211"
-        tools:layout_editor_absoluteX="100dp" />
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/etCode"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/etMail" />
 
     <EditText
         android:id="@+id/etCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
         android:ems="10"
-        android:hint="@string/etCode"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/btnVerifyData"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

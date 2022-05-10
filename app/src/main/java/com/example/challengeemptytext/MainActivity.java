@@ -20,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
     private boolean studiante;
     private String Name,LastName,Password, Mail,code;
     private int phone;
+    private Estudiante student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeViews();
+
 
         btnVerify.setOnClickListener((view -> {
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             pasarOtraPantalla();
+            obtenerInformacion();
 
         }));
     }
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         Name=etName.getText().toString();
         LastName=etLastName.getText().toString();
         Password=etPassWord.getText().toString();
+        Mail=etMail.getText().toString();
         studiante=swStudent.isChecked();
     }
 
@@ -102,19 +106,73 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void pasarOtraPantalla(){
-        /*
-         Para pasar datos a otra pantalla
-         Usar el intent
-         en el intent -> configurar el archivo temporal -> guarda registro en un formato. ese formaro se conoce como: CLAVE(key) -> VALOR(value)
-         El archivo pueden entenderlo que se llama EXTRAS y cada registro que crean se es un EXTRA
+       /*
+        Cuando se quiere navegar de una pantalla A a otra pantalla B
+        se debe hacer uso del componenete llamado INTENT
+        el mismo se comporta como el criterio de querer responder
+        a una intención o deseo en términos simples.
+        Si la intención se puede resolver pues logramos el objetivo
+        y un método en específico lanzará la siguiente pantalla.
+        Para configurar un INTENT en este sentido, se debe crear
+        una instancia de la clase Intent y en su constructor
+        indicarle de donde a donde quieren ir, pero deben ser referenciadas
+        en conceptos del contexto de la clase que representa a esa pantalla
         */
         Intent intencion = new Intent(this, HomeActivity.class);
-        //las llaves no se pueden repetir
-        intencion.putExtra("nombre_persona", Name);
-        intencion.putExtra("apellido_persona", LastName);
-        intencion.putExtra("mail_persona", Mail);
-        intencion.putExtra("telefono_persona", phone);
-        intencion.putExtra("codigo_persona", code);
+        //Paso 1: mandar datos primitivos
+        /*
+        Quieren pasar datos a otra pantalla
+        Usar el Intent
+        en el Intent -> configurar un archivo temporal
+        archivo temporal -> guarda registro en un formato.
+        ese formato se conoce como: CLAVE(key) -> VALOR(value)
+        ejemplo: .putExtra("Llave"(clave), valor(primitiva))
+        El archivo pueden entenderlo que se llama extras
+        y cada registro que crean es un EXTRA
+        La llave debe ser una cadena string única
+         */
+        /*nombre = etNombre.getText().toString();
+        apellido = etApellido.getText().toString();
+        celular = etCelular.getText().toString();
+        email = etEmail.getText().toString();
+        codigo = etCodigo.getText().toString();
+        esEstudiante = swEstudiante.isChecked();
+        intencion.putExtra("nombre_persona",nombre);
+        intencion.putExtra("apellido_persona",apellido);
+        intencion.putExtra("celular_persona",celular);
+        intencion.putExtra("email_persona",email);
+        intencion.putExtra("codigo_persona",codigo);
+        intencion.putExtra("esEstudiante_persona",esEstudiante);*/
+        //Paso alternativo: pasar datos por objeto serializado
+        //Objeto Bundle entiendace como si fuera un archivo temporal
+        Bundle archivoTemporal = new Bundle();
+        archivoTemporal.putSerializable("objeto_estudiante",student);
+        intencion.putExtras(archivoTemporal);
         startActivity(intencion);
+    }
+    private void obtenerInformacion(){
+            /*nombre = etNombre.getText().toString();
+            apellido = etApellido.getText().toString();
+            String email = etApellido.getText().toString();
+            int celular = Integer.parseInt(etCelular.getText().toString());
+            int codigo = Integer.parseInt(etCodigo.getText().toString());
+            //En el switch o checkbox ustedes quieren obtener el valor
+            //cuando el elemento ha sdo marcado y eso es un atributo
+            //llamdo checked
+            //en valores booleanos el get cambia por is por temas de lenguaje
+            boolean esEstudiante = swEstudiante.isChecked();*/
+            student = new Estudiante(etName.getText().toString(),
+                    etLastName.getText().toString(),
+                    etPassWord.getText().toString(),
+                    Integer.parseInt(etPhone.getText().toString()),
+                    etMail.getText().toString(),
+                    swStudent.isChecked()
+            );
+            if (swStudent.isChecked()){
+                student.setCodigoEstudiante(Integer.parseInt(etCode.getText().toString()));
+            }
+            //tvResultado.setText(estudiante.toString());
+            pasarOtraPantalla();
+
     }
 }
