@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView txtNameEmpty, txtLastNameEmpty, txtPassWord, txtData;
+    private TextView txtNameEmpty, txtLastnameEmpty, txtPassWord, txtData;
     private Button btnVerify;
     private EditText etName,etLastName,etPassWord,etMail,etPhone,etCode;
     private Switch swStudent;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeViews(){
         txtData=findViewById(R.id.txtData);
         txtNameEmpty=findViewById(R.id.txtNameEmpty);
-        txtLastNameEmpty=findViewById(R.id.txtLastNameEmpty);
+        txtLastnameEmpty=findViewById(R.id.txtLastnameEmpty);
         txtPassWord=findViewById(R.id.txtPassWord);
         btnVerify=findViewById(R.id.btnVerifyData);
         etName=findViewById(R.id.etName);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         txtNameEmpty.setText("Este campo no puede estar vacio");
     }
     private void showErrorLastName(){
-        txtLastNameEmpty.setText("Este campo no puede estar vacio");
+        txtLastnameEmpty.setText("Este campo no puede estar vacio");
     }
     private void showErrorPassword(){
         txtPassWord.setText("Este campo no puede estar vacio");
